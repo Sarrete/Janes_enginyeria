@@ -60,7 +60,7 @@ const imagenesMiniatura1 = [
     "images/3d/Galeria/6.jpeg",
     "images/3d/Galeria/8.jpeg",
     "images/3d/Galeria/9.jpeg",
-    "images/3d/Suport manillar/Sm 1.jpeg",
+    "images/3d/Suport manillar/Sm.jpeg",
     "images/3d/Suport manillar/Sm 1.jpeg",
    
 ];

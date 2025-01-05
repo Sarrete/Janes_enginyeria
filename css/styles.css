@@ -1,23 +1,37 @@
 /* Estilos generales */
 body {
-    background-image: url('../images/fondos/fondo1.jpg'); /* Asegúrate de poner la ruta correcta */
     background-repeat: repeat; /* Si la imagen es pequeña y quieres que se repita */
     background-size: cover; /* Para que la imagen cubra todo el fondo */
     background-attachment: fixed; /* Para que el fondo se quede fijo al hacer scroll */
     color: #333; /* Color del texto para contraste */
-}
-
-
-body {
     background-image: url('../images/fondos/fondo2.jpg');
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     background-color: #f0f0f0; /* Fondo limpio */
-    color: #333; /* Color de texto */
+
 }
 
+h1 {
+    margin: 0;
+}
+h2 {
+    color: #007BFF; /* Color del título */
+    margin-bottom: 10px;
+    margin-top: -15px;
+}
+
+h3 {
+    color: #f4f4f4; /* Color del subtítulo */
+}
+
+h4 {
+    color: #34e3bc;
+    margin-bottom: 16px;
+    margin-top: 21px;
+    font-size: 30px;
+}
 .container {
     padding-top: 67px; /* Espacio para el encabezado fijo */
     padding-bottom: 67px;
@@ -41,7 +55,6 @@ header {
     z-index: 1000;
 } 
 
-
 .language-selector-container {
     position: relative;
     display: inline-block;
@@ -59,11 +72,6 @@ header {
 
 .show-select #language-selector {
     display: block; /* Mostrar cuando se haga clic */
-}
-
-
-h1 {
-    margin: 0;
 }
 
 /* Icono del men  hamburguesa */
@@ -84,7 +92,6 @@ h1 {
     display: none; /* Oculto por defecto */
 }
   
-
 /* Men  desplegable */
 .menu {
     display: none; /* Oculto por defecto */
@@ -155,25 +162,36 @@ h1 {
     background-repeat: no-repeat;
 }
 /* Secciones de trabajo */
-.work-section {
-    position: relative;
-    padding: 40px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    
-}
 
 .work-section {
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin: 14px;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo de secciones */
     border-radius: 10px; /* Bordes redondeados */
     margin-bottom: 34px;
     margin-top: 34px;
+    background-color: rgba(0, 0, 0, 71%);
+    text-align: center;
+    font-size: 20px;
+
 }
 
-h2 {
-    color: #333; /* Color de los t tulos de secciones */
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .work-section {
+        padding: 20px; /* Reduce el padding */
+        font-size: 16px; /* Reduce el tamaño de fuente */
+    }
 }
+
+@media (max-width: 480px) {
+    .work-section {
+        padding: 15px; /* Menor padding en pantallas pequeñas */
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+    }
+}
+
 
 /* Ajustes para pantallas móviles */
 @media (max-width: 480px) {
@@ -349,27 +367,6 @@ h2 {
     color: white;
     text-align: center;
 }
-
-/* Estilos específicos para la descripción de fotos */
-.photo-description {
-    position: fixed;
-    bottom:-1px;
-    margin-top: 25px;
-    background-color: rgba(0, 0, 0, 0);
-    padding: 3px;
-    width: 100%;
-}
-
-/* Estilos específicos para la descripción de videos */
-.video-description {
-    position: absolute;
-    bottom: -50px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 0px;
-    width: 90%;
-    text-align: left;
-}
-
 /* Estilos específicos para pantallas pequeñas (móviles y tablets) */
 @media (max-width: 768px) {
     .popup-content {
@@ -444,28 +441,27 @@ h2 {
 
 }
 
-.work-section {
-   /* padding: 40px;*/
-    background-color: rgba(0, 0, 0, 71%);
-    text-align: center;
-    font-size: 20px;
-
+/* Estilos específicos para la descripción de fotos */
+.photo-description {
+    position: fixed;
+    bottom:-1px;
+    margin-top: 25px;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 3px;
+    width: 100%;
 }
 
-/* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
-    .work-section {
-        padding: 20px; /* Reduce el padding */
-        font-size: 16px; /* Reduce el tamaño de fuente */
-    }
+/* Estilos específicos para la descripción de videos */
+.video-description {
+    position: absolute;
+    bottom: -50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0px;
+    width: 90%;
+    text-align: left;
 }
 
-@media (max-width: 480px) {
-    .work-section {
-        padding: 15px; /* Menor padding en pantallas pequeñas */
-        font-size: 14px; /* Tamaño de fuente más pequeño */
-    }
-}
+
 .miniatura-dinamica, .miniatura-dinamica1 {
     display: flex;
     flex-direction: column;
@@ -529,7 +525,7 @@ h2 {
     }
 
     .descripcion {
-        font-size: 10px; /* Texto más pequeño para pantallas muy pequeñas */
+        font-size: 12px; /* Texto más pequeño para pantallas muy pequeñas */
         padding: 3px;    /* Espacio alrededor del texto */
     }
 }
@@ -584,22 +580,7 @@ h2 {
     background-color: #20b358; /* Color al pasar el mouse */
 }
 
-h2 {
-    color: #007BFF; /* Color del título */
-    margin-bottom: 10px;
-    margin-top: -15px;
-}
 
-h3 {
-    color: #f4f4f4; /* Color del subtítulo */
-}
-
-h4 {
-    color: #34e3bc;
-    margin-bottom: 16px;
-    margin-top: 21px;
-    font-size: 30px;
-}
 
 a {
     color:#ff7800; /* Color del subtítulo */
@@ -659,11 +640,7 @@ video {
         left: 50%;
         z-index: 0; /* Envía el video al fondo si es necesario */
     }
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-}
+
 
 #review-form-section, #approved-reviews-section {
     margin-bottom: 30px;
@@ -731,4 +708,5 @@ button:hover {
     #approved-reviews-container {
         grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
     }
+}
 }

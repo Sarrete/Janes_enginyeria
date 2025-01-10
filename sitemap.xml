@@ -6,11 +6,34 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
 <url>
   <loc>https://janesenginyeria.netlify.app/</loc>
   <lastmod>2025-01-07T18:31:37+00:00</lastmod>
+  <priority>1.0</priority>
 </url>
 
+<url>
+  <loc>https://janesenginyeria.netlify.app/#mecanizado</loc>
+  <lastmod>2025-01-07T18:31:37+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://janesenginyeria.netlify.app/#impresion-3d</loc>
+  <lastmod>2025-01-07T18:31:37+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://janesenginyeria.netlify.app/#a-medida</loc>
+  <lastmod>2025-01-07T18:31:37+00:00</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://janesenginyeria.netlify.app/#contacto</loc>
+  <lastmod>2025-01-07T18:31:37+00:00</lastmod>
+  <priority>0.6</priority>
+</url>
 
 </urlset>

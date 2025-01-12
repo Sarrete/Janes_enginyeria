@@ -1,4 +1,3 @@
 User-agent: *
-Disallow: /multimedia/
 Allow: /
 Sitemap: https://janesenginyeria.netlify.app/sitemap.xml

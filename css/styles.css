@@ -215,6 +215,54 @@ header {
         max-width: 100%; /* Evita que la imagen se desborde */
     }
 }
+   
+
+        body {
+            font-family: 'Roboto', sans-serif; /* Cambia a la fuente que prefieras */
+            background-color: #f4f4f4;
+            color: #25d366;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0; /* Elimina márgenes por defecto */
+        }
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ff6347; /* Color del título */
+            text-align: center; /* Centra el título */
+        }
+        .content {
+            background-color: #17db6045;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0px;
+            margin-left: 20px; /* Centra el contenido horizontalmente */
+            margin-right: 20px; /* Centra el contenido horizontalmente */
+        }
+        ul {
+            padding-left: 20px;
+            list-style-type: disc; /* Asegura que los puntos se muestren */
+            list-style-position: inside; /* Alinea los puntos con el texto */
+            padding-left: 0; /* Remueve espacio adicional a la izquierda si es necesario */
+        }
+        li {
+            margin-bottom: 10px;
+            margin: 10px 0; /* Espaciado entre los elementos de la lista */
+            text-indent: 0; /* Asegura que no haya sangría en el texto */
+        }
+        .highlight {
+            font-weight: bold; /* Resalta el texto clave */
+            color: #FF6347; /* Color para resaltar */
+        }
+        .footer {
+            text-align: center; /* Centra el pie de página */
+            margin-top: 20px;
+            font-size: 0.9em; /* Tamaño de fuente más pequeño */
+            color: #666; /* Color gris para menos énfasis */
+        }
+
+
 /* Pi ones laterales */
 .gears-left, .gears-right {
     position: fixed;   

@@ -3,14 +3,16 @@ body {
     background-repeat: repeat; /* Si la imagen es pequeña y quieres que se repita */
     background-size: cover; /* Para que la imagen cubra todo el fondo */
     background-attachment: fixed; /* Para que el fondo se quede fijo al hacer scroll */
-    color: #333; /* Color del texto para contraste */
     background-image: url('../images/fondos/fondo2.jpg');
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     background-color: #f0f0f0; /* Fondo limpio */
-
+    font-family: 'Roboto', sans-serif; /* Cambia a la fuente que prefieras */
+    background-color: #f4f4f4;
+    color: #25d366;
+    padding: 20px;
+    margin: 0; /* Elimina márgenes por defecto */
 }
 
 h1 {
@@ -20,6 +22,7 @@ h2 {
     color: #007BFF; /* Color del título */
     margin-bottom: 10px;
     margin-top: -15px;
+    font-size: 32px;
 }
 
 h3 {
@@ -163,69 +166,7 @@ header {
 }
 /* Secciones de trabajo */
 
-.work-section {
-    position: relative;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin: 14px;
-    padding: 20px;
-    border-radius: 10px; /* Bordes redondeados */
-    margin-bottom: 34px;
-    margin-top: 34px;
-    background-color: rgba(0, 0, 0, 71%);
-    text-align: center;
-    font-size: 20px;
-
-}
-
-/* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
-    .work-section {
-        padding: 20px; /* Reduce el padding */
-        font-size: 16px; /* Reduce el tamaño de fuente */
-    }
-}
-
-@media (max-width: 480px) {
-    .work-section {
-        padding: 15px; /* Menor padding en pantallas pequeñas */
-        font-size: 14px; /* Tamaño de fuente más pequeño */
-    }
-}
-
-
-/* Ajustes para pantallas móviles */
-@media (max-width: 480px) {
-    .work-section {
-        padding: 20px; /* Reducir el padding para dar más espacio al contenido */
-        margin: 03px; /* Quitar márgenes para que ocupe todo el ancho */
-        width: 98%; /* El contenedor ocupará todo el ancho de la pantalla */
-        box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-        margin-top: 14px;
-        margin-bottom: 30px;
-    }
-
-    .image-container {
-        width: 100%; /* Las imágenes ocuparán todo el ancho disponible */
-        margin-bottom: 15px; /* Espacio entre las imágenes */
-    }
-
-    .galeria img {
-        width: 100%; /* Asegura que la imagen se ajuste al contenedor */
-        height: auto; /* Mantiene la proporción de la imagen */
-        max-width: 100%; /* Evita que la imagen se desborde */
-    }
-}
-   
-
-        body {
-            font-family: 'Roboto', sans-serif; /* Cambia a la fuente que prefieras */
-            background-color: #f4f4f4;
-            color: #25d366;
-            line-height: 1.6;
-            padding: 20px;
-            margin: 0; /* Elimina márgenes por defecto */
-        }
-        .section-title {
+ .section-title {
             font-size: 2em;
             margin-bottom: 20px;
             color: #ff6347; /* Color del título */
@@ -255,13 +196,20 @@ header {
             font-weight: bold; /* Resalta el texto clave */
             color: #FF6347; /* Color para resaltar */
         }
-        .footer {
-            text-align: center; /* Centra el pie de página */
-            margin-top: 20px;
-            font-size: 0.9em; /* Tamaño de fuente más pequeño */
-            color: #666; /* Color gris para menos énfasis */
-        }
 
+.work-section {
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 14px;
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    margin-bottom: 34px;
+    margin-top: 34px;
+    background-color: rgba(0, 0, 0, 71%);
+    text-align: center;
+    font-size: 20px;
+
+}
 
 /* Pi ones laterales */
 .gears-left, .gears-right {
@@ -273,29 +221,17 @@ header {
     background-color: transparent;
 }
 .gears-left {
-    position: fixed;
     top: 30%;
     left: -287px;
     z-index: 1; /* Asegura que estén encima de otros elementos */
 }
 
 .gears-right {
-    position: fixed;
     top: 30%;
     right: -288px;
     z-index: 1; /* Asegura que estén encima de otros elementos */
 }
 
-/* Ajustes para pantallas móviles */
-@media (max-width: 480px) {
-    .gears-left {
-        left: -296px; /* Ajusta el desplazamiento para móviles */
-    }
-
-    .gears-right {
-        right: -296px; /* Ajusta el desplazamiento para móviles */
-    }
-}
 
 /* Estilo base para los contenedores */
 .image-container {
@@ -321,7 +257,7 @@ header {
 
 /* Texto descriptivo */
 .image-caption {
-    font-size: 14px; /* Tamaño del texto */
+    font-size: 17px; /* Tamaño del texto */
     margin-top: 5px;
     color: #fff;
     display: block;
@@ -334,37 +270,6 @@ header {
     flex-wrap: wrap; /* Permite que las imágenes envuelvan */
     justify-content: space-around; /* Distribuye el espacio uniformemente */
     gap: 10px;
-}
-
-/* Media Queries para dispositivos medianos */
-@media (max-width: 768px) {
-    .image-container {
-        flex: 100%; /* Dos columnas */
-    }
-
-    .image-container img {
-        height: 180px; /* Ajusta la altura en pantallas medianas */
-    }
-
-    .image-caption {
-        font-size: 12px; /* Tamaño de texto menor */
-    }
-}
-
-/* Media Queries para dispositivos pequeños */
-@media (max-width: 480px) {
-    .image-container {
-        flex: 100%; /* Una columna */
-        margin-bottom: 10px;
-    }
-
-    .image-container img {
-        height: 150px; /* Ajusta la altura para móviles */
-    }
-
-    .galeria {
-        gap: 5px; /* Menor espacio entre imágenes */
-    }
 }
 
 /* Estilos generales para el popup */
@@ -414,47 +319,6 @@ header {
     font-size: 16px;
     color: white;
     text-align: center;
-}
-/* Estilos específicos para pantallas pequeñas (móviles y tablets) */
-@media (max-width: 768px) {
-    .popup-content {
-        max-width: 90%; /* Mayor flexibilidad en el ancho */
-        max-height: 90%; /* Ocupa más espacio en pantallas pequeñas */
-        bottom: 0;       /* Asegura que el popup se ajuste en la pantalla */
-    }
-
-    #popup-image {
-      /*  max-height: 30vh; /* Ajuste de la altura máxima en pantallas pequeñas */
-     /*   max-width: 90%;   /* Permite que la imagen se ajuste mejor a la pantalla */
-      /*  margin: 0 auto;   /* Centra la imagen */
-        border-radius: 15px;
-    }
-
-    .popup-text {
-        font-size: 14px;  /* Texto más pequeño para pantallas pequeñas */
-        padding: 10px;    /* Espacio alrededor del texto */
-    }
-}
-
-@media (max-width: 480px) {
-    .popup-content {
-        max-width: 95%;  /* Ancho casi completo para móviles */
-        max-height: 90%; /* Usa más espacio vertical en móviles */
-        bottom: 0;       /* Ajuste para que el contenido quede visible */
-    }
-
-    #popup-image {
-     /*   max-height: 39vh; /* Ajusta la imagen en pantallas muy pequeñas */
-     /*   max-width: 100%;  /* Imagen ocupa todo el ancho posible */
-     /*   position: fixed; */
-        top: 36%;
-        border-radius: 15px;
-    }
-
-    .popup-text {
-        font-size: 12px;  /* Ajuste del tamaño de texto para pantallas pequeñas */
-        padding: 5px;     /* Menos espacio para ajustar el contenido */
-    }
 }
 
 .popup-arrow {
@@ -543,42 +407,6 @@ header {
     border-radius: 5px;
 }
 
-/* Estilos específicos para pantallas pequeñas (móviles y tablets) */
-@media (max-width: 768px) {
-    .miniatura-dinamica, .miniatura-dinamica1 {
-        width: 300px; /* Ajusta el tamaño según tus necesidades */
-        height: 300px; /* Ajusta el tamaño según tus necesidades */
-    }
-
-    .miniatura-dinamica img, .miniatura-dinamica1 img {
-        width: 90%;
-        height: 90%;
-    }
-
-    .descripcion {
-        font-size: 12px; /* Texto más pequeño para pantallas pequeñas */
-        padding: 4px;    /* Espacio alrededor del texto */
-    }
-}
-
-@media (max-width: 480px) {
-    .miniatura-dinamica, .miniatura-dinamica1 {
-        width: 150px; /* Ajusta el tamaño según tus necesidades */
-        height: 150px; /* Ajusta el tamaño según tus necesidades */
-    }
-
-    .miniatura-dinamica img, .miniatura-dinamica1 img {
-        width: 100%;
-        height: 100%;
-    }
-
-    .descripcion {
-        font-size: 12px; /* Texto más pequeño para pantallas muy pequeñas */
-        padding: 3px;    /* Espacio alrededor del texto */
-    }
-}
-
-
 /* Estilos generales para el contenedor del mapa */
 .map-container {
     width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
@@ -595,12 +423,6 @@ header {
     border: 0; /* Eliminar bordes innecesarios */
 }
 
-/* Ajustes específicos para móviles */
-@media (max-width: 480px) {
-    .map-container {
-        height: 300px; /* Reducción de la altura para móviles */
-    }
-}
 
 .info-container {
     flex: 1; /* Información ocupa la otra mitad */
@@ -627,8 +449,6 @@ header {
 .whatsapp-button:hover {
     background-color: #20b358; /* Color al pasar el mouse */
 }
-
-
 
 a {
     color:#ff7800; /* Color del subtítulo */
@@ -666,29 +486,6 @@ video {
     object-fit: cover; /* Para que se ajuste al tamaño del contenedor sin deformarse */
     border-radius: 14px
    }
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .container {
-        padding-top: 70px; /* Ajusta el padding para pantallas pequeñas */
-    }
-    
-    .galeria img {
-        width: 150px;
-        height: 150px;
-    
-    }
-
-    video {
-        width: 100vw; /* Ocupa todo el ancho de la pantalla móvil */
-        height: 86vh; /* Ocupa toda la altura de la pantalla móvil */
-        object-fit: cover; /* Ajusta el video para cubrir el área */
-        position: fixed; /* Fija el video para que se ajuste a la pantalla */
-        top: 53.5%;
-        left: 50%;
-        z-index: 0; /* Envía el video al fondo si es necesario */
-    }
-
 
 #review-form-section, #approved-reviews-section {
     margin-bottom: 30px;
@@ -745,6 +542,147 @@ button:hover {
     gap: 16px; /* Espacio entre las reseñas */
 }
 
+/* Media Queries para dispositivos pequeños */
+@media (max-width: 480px) {
+    .image-container {
+        flex: 100%; /* Una columna */
+        margin-bottom: 10px;
+    }
+
+    .image-container img {
+        height: 150px; /* Ajusta la altura para móviles */
+    }
+
+    .galeria {
+        gap: 5px; /* Menor espacio entre imágenes */
+    }
+
+    .gears-left {
+        left: -296px; /* Ajusta el desplazamiento para móviles */
+    }
+
+    .gears-right {
+        right: -296px; /* Ajusta el desplazamiento para móviles */
+    }
+
+    .popup-content {
+        max-width: 95%;  /* Ancho casi completo para móviles */
+        max-height: 90%; /* Usa más espacio vertical en móviles */
+        bottom: 0;       /* Ajuste para que el contenido quede visible */
+    }
+
+    #popup-image {
+     /*   max-height: 39vh; /* Ajusta la imagen en pantallas muy pequeñas */
+     /*   max-width: 100%;  /* Imagen ocupa todo el ancho posible */
+     /*   position: fixed; */
+        top: 36%;
+        border-radius: 15px;
+    }
+
+    .popup-text {
+        font-size: 12px;  /* Ajuste del tamaño de texto para pantallas pequeñas */
+        padding: 5px;     /* Menos espacio para ajustar el contenido */
+    }
+
+    .work-section {
+        padding: 20px; /* Reducir el padding para dar más espacio al contenido */
+        margin: 03px; /* Quitar márgenes para que ocupe todo el ancho */
+        width: 98%; /* El contenedor ocupará todo el ancho de la pantalla */
+        box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+        margin-top: 14px;
+        margin-bottom: 30px;
+    }
+
+    .work-section {
+        padding: 15px; /* Menor padding en pantallas pequeñas */
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+    }
+
+    .image-container {
+        width: 100%; /* Las imágenes ocuparán todo el ancho disponible */
+        margin-bottom: 15px; /* Espacio entre las imágenes */
+    }
+
+    .galeria img {
+        width: 100%; /* Asegura que la imagen se ajuste al contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+        max-width: 100%; /* Evita que la imagen se desborde */
+    }      
+
+    .map-container {
+        height: 300px; /* Reducción de la altura para móviles */
+    }
+}
+
+/* Estilos específicos para pantallas pequeñas (móviles y tablets) */
+@media (max-width: 768px) {
+    .popup-content {
+        max-width: 90%; /* Mayor flexibilidad en el ancho */
+        max-height: 90%; /* Ocupa más espacio en pantallas pequeñas */
+        bottom: 0;       /* Asegura que el popup se ajuste en la pantalla */
+    }
+
+    #popup-image {
+      /*  max-height: 30vh; /* Ajuste de la altura máxima en pantallas pequeñas */
+     /*   max-width: 90%;   /* Permite que la imagen se ajuste mejor a la pantalla */
+      /*  margin: 0 auto;   /* Centra la imagen */
+        border-radius: 15px;
+    }
+
+    .popup-text {
+        font-size: 14px;  /* Texto más pequeño para pantallas pequeñas */
+        padding: 10px;    /* Espacio alrededor del texto */
+    }
+
+    .image-container {
+        flex: 100%; /* Dos columnas */
+    }
+
+    .image-container img {
+        height: 180px; /* Ajusta la altura en pantallas medianas */
+    }
+
+    .image-caption {
+        font-size: 12px; /* Tamaño de texto menor */
+    }
+
+    .work-section {
+        padding: 20px; /* Reduce el padding */
+        font-size: 16px; /* Reduce el tamaño de fuente */
+    }
+
+    .miniatura-dinamica, .miniatura-dinamica1 {
+        width: 150px; /* Ajusta el tamaño según tus necesidades */
+        height: 150px; /* Ajusta el tamaño según tus necesidades */
+    }
+
+    .descripcion {
+        font-size: 12px; /* Texto más pequeño para pantallas muy pequeñas */
+        padding: 3px;    /* Espacio alrededor del texto */
+    }
+
+    .container {
+        padding-top: 70px; /* Ajusta el padding para pantallas pequeñas */
+    }
+    
+    .galeria img {
+        width: 150px;
+        height: 150px;
+    
+    }
+
+    video {
+        width: 100vw; /* Ocupa todo el ancho de la pantalla móvil */
+        height: 86vh; /* Ocupa toda la altura de la pantalla móvil */
+        object-fit: cover; /* Ajusta el video para cubrir el área */
+        position: fixed; /* Fija el video para que se ajuste a la pantalla */
+        top: 53.5%;
+        left: 50%;
+        z-index: 0; /* Envía el video al fondo si es necesario */
+    }
+
+}
+
 /* Media Queries para dispositivos móviles */
 @media (max-width: 900px) {
     #approved-reviews-container {
@@ -756,5 +694,4 @@ button:hover {
     #approved-reviews-container {
         grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
     }
-}
 }

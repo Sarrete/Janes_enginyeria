@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let isVideo = false;
     
         async function notifyIndexNow(urls) {
-            const apiKey = 'b00ee708c1e6464985a29a54a8b18378';
+            const apiKey = '';
             const endpoint = `https://www.bing.com/indexnow`;
         
             const payload = {

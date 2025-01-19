@@ -7,14 +7,24 @@ body {
     line-height: 1.6;
     background-color: #f0f0f0; /* Fondo limpio */
     font-family: 'Roboto', sans-serif; /* Cambia a la fuente que prefieras */
-    color: #25d366;
+    color: #f4f4f4;
     padding: 20px;
     margin: 0; /* Elimina márgenes por defecto */
+}
+strong {
+    color: #f4f4f4;
+    font-size: 19px;
+}
+
+a {
+    color:#ff6347; /* Color del subtítulo */
+    font-size: 32px;
 }
 
 h1 {
     margin: 0;
 }
+
 h2 {
     color: #007BFF; /* Color del título */
     margin-bottom: 10px;
@@ -27,10 +37,11 @@ h3 {
 }
 
 h4 {
-    color: #34e3bc;
+    color: #f0f0f0;
     margin-bottom: 16px;
     margin-top: 21px;
-    font-size: 30px;
+    font-family: 'Roboto', sans-serif; /* Cambia a la fuente que prefieras */
+    font-size: 18px;
 }
 .container {
     padding-top: 67px; /* Espacio para el encabezado fijo */
@@ -442,9 +453,7 @@ header {
     background-color: #20b358; /* Color al pasar el mouse */
 }
 
-a {
-    color:#ff7800; /* Color del subtítulo */
-}
+
 
 /* Footer */
 footer {

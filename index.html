@@ -274,17 +274,20 @@
     <!-- Contenido del popup -->
     <div class="popup-content">
         <span id="close-popup">&times;</span>
-
+    <figure>
         <!-- Contenedor de la imagen -->
         <img id="popup-image" src="favicon-16x16.png" alt="Imagen destacada">
         <figcaption id="popup-caption" class="photo-description"></figcaption>
-
-        <!-- Contenedor del video -->
+    </figure>
+    
+       <!-- Contenedor del video -->
         <video id="popup-video" controls style="display:none;">
             <source id="popup-video-source" src="/multimedia/3d/1/video1.mp4" type="video/mp4">
             <span data-i18n="popup_video_error">Tu navegador no soporta el video.</span>
         </video>
+    <figure>
         <figcaption id="popup-video-caption" class="video-description" style="display:none;"></figcaption>
+    </figure>    
 
         <!-- Flechas de navegación -->
         <button id="prev" class="popup-arrow">&#10094;</button>
@@ -302,8 +305,10 @@
         <p data-i18n="footer_texto">© 2024 JANÉS ENGINYERIA. Todos los derechos reservados.</p>
         <img src="images/logo.png" alt="Logo" class="footer-logo">
     </footer>
+</div>
 
     <!-- JavaScript -->
     <script src="js/script.js" defer></script>
+
 </body>
 </html>

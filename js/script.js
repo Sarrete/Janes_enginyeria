@@ -22,42 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let currentMediaIndex = 0;
         let currentMedia = [];
         let isVideo = false;
-    
-        async function notifyIndexNow(urls) {
-            const apiKey = '';
-            const endpoint = `https://www.bing.com/indexnow`;
-        
-            const payload = {
-                host: 'janesenginyeria.netlify.app',
-                key: apiKey,
-                keyLocation: `https://janesenginyeria.netlify.app/${apiKey}.txt`,
-                urlList: urls
-            };
-        
-            try {
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-        
-                if (response.ok) {
-                    console.log('URLs notificadas con éxito:', urls);
-                } else {
-                    console.error('Error al notificar las URLs:', response.statusText);
-                }
-            } catch (error) {
-                console.error('Error al realizar la solicitud:', error);
-            }
-        }
-        
-        // Ejemplo de uso
-        notifyIndexNow([
-            'https://janesenginyeria.netlify.app/nueva-pagina',
-            'https://janesenginyeria.netlify.app/otra-pagina'
-        ]);
-        
-        
+             
   // --- Función para la Miniatura Dinámica ---
 const miniaturaImagen = document.getElementById("miniatura-imagen");
 const imagenesMiniatura = [

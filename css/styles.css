@@ -439,6 +439,26 @@ header {
     margin-bottom: 15px; /* Espacio entre elementos */
 }
 
+.email-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 19px;
+    color: #ff6347;
+    background-color: #0010b3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.email-button strong {
+    margin-right: 10px;
+}
+
+.email-button:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+}
+
 .whatsapp-button {
     display: inline-block;
     background-color: #25D366; /* Color de WhatsApp */

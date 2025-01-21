@@ -143,37 +143,7 @@ header {
 }
 .menu.active { display: block; /* Mostrar menú cuando está activo */ }
 
-/* Secciones de trabajo (para agregar fondos en los contendores) */
-/* 
-.section-1 {
-    background-image: url('../images/imagen2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-/* 
-.section-2 {
-    background-image: url('../images/fondos/fondo1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.section-3 {
-    background-image: url('../images/imagen2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-.section-4 {
-    background-image: url('../images/imagen2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-/* Secciones de trabajo */
-
- .section-title {
+.section-title {
             font-size: 2em;
             margin-bottom: 20px;
             color: #ff6347; /* Color del título */
@@ -303,16 +273,16 @@ header {
     max-width: 80%;
     max-height: 80%;
     text-align: center;
-   /* position: fixed;*/
-    bottom: 123px;
-    z-index: 1000;
+    bottom: 123px;           
+    border-radius: 10px;
     overflow: hidden;
 }
 
 /* Imagen dentro del popup */
 #popup-image {
-    width: 50%;
-    height: 50%;
+    object-fit: contain; /* Asegura que se ajuste al contenedor sin recortarse */
+    max-width: 432px;
+    border-radius: 12px;
 
 }
 
@@ -364,6 +334,8 @@ header {
     background-color: rgba(0, 0, 0, 0);
     padding: 3px;
     width: 100%;
+    max-width: 432px;
+    left: 1px
 }
 
 /* Estilos específicos para la descripción de videos */
@@ -376,6 +348,9 @@ header {
     text-align: left;
 }
 
+element.style {
+    display: block;
+}
 
 .miniatura-dinamica, .miniatura-dinamica1 {
     display: flex;
@@ -593,11 +568,10 @@ button:hover {
     }
 
     #popup-image {
-     /*   max-height: 39vh; /* Ajusta la imagen en pantallas muy pequeñas */
-     /*   max-width: 100%;  /* Imagen ocupa todo el ancho posible */
-     /*   position: fixed; */
-        top: 36%;
-        border-radius: 15px;
+       max-height: 39vh; /* Ajusta la imagen en pantallas muy pequeñas */
+       max-width: 100%;  /* Imagen ocupa todo el ancho posible */
+       top: 36%;
+       border-radius: 15px;
     }
 
     .popup-text {

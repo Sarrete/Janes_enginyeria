@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "https://www.janesenginyeria.netlify.app/*"
+  to = "https://janesenginyeria.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true

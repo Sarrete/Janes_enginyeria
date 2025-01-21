@@ -441,14 +441,13 @@ header {
 
 .email-button {
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 19px;
+    padding: 6px
+    font-size: 16px;
     color: #ff6347;
     background-color: #0010b3;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    text-align: left;
 }
 
 .email-button strong {
@@ -536,6 +535,7 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+
 }
 
 button:hover {

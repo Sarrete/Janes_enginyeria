@@ -15,3 +15,18 @@
   [headers.values]
     Content-Type = "application/xml"
     Vary = "Accept-Encoding"
+
+[build]
+  publish = "public"
+
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+
+  [plugins.inputs]
+  baseUrl = "https://janesenginyeria.netlify.app"
+  sitemapPath = "/sitemap.xml"
+  ignorePeriod = 3600 # 1 hora en segundos
+  providers = [
+    "google",
+    "yandex"
+  ]

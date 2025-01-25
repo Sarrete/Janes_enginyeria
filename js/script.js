@@ -126,8 +126,32 @@ miniatura1.addEventListener("click", function () {
         loadTranslations(selectedLanguage);
     });
 
-    // Cargar el idioma por defecto (catalán)
-    loadTranslations('ca');
+// Función para detectar el idioma del navegador
+function detectarIdiomaNavegador() {
+    const idioma = navigator.language || navigator.userLanguage;
+    return idioma.split('-')[0]; // Obtiene el código del idioma (es, ca, en)
+}
+
+// Función para cargar el contenido según el idioma
+function cargarContenidoPorIdioma() {
+    const idioma = detectarIdiomaNavegador();
+    if (idioma === 'es') {
+        document.documentElement.lang = 'es';
+        languageSelector.value = 'es'; // Seleccionar el valor correcto en el selector
+        loadTranslations('es'); // Cargar contenido en español
+    } else if (idioma === 'ca') {
+        document.documentElement.lang = 'ca';
+        languageSelector.value = 'ca'; // Seleccionar el valor correcto en el selector
+        loadTranslations('ca'); // Cargar contenido en catalán
+    } else {
+        document.documentElement.lang = 'en';
+        languageSelector.value = 'en'; // Seleccionar el valor correcto en el selector
+        loadTranslations('en'); // Cargar contenido en inglés por defecto
+    }
+}
+ 
+// Llama a la función al cargar la página
+cargarContenidoPorIdioma();
 
     // Función para rotar los piñones en función del desplazamiento vertical (scroll)
     function rotateGears() {

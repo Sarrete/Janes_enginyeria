@@ -16,9 +16,6 @@
     Content-Type = "application/xml"
     Vary = "Accept-Encoding"
 
-[build]
-  publish = "public"
-
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
 

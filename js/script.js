@@ -22,7 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
         let currentMediaIndex = 0;
         let currentMedia = [];
         let isVideo = false;
+        
+function cargarContenidoPorIdioma() {
+    const idioma = detectarIdiomaNavegador();
+    document.documentElement.lang = idioma;
+    languageSelector.value = idioma; 
+    loadTranslations(idioma);
+}
              
+        
   // --- Función para la Miniatura Dinámica ---
 const miniaturaImagen = document.getElementById("miniatura-imagen");
 const imagenesMiniatura = [

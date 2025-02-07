@@ -68,11 +68,11 @@ const imagenesMiniatura1 = [
     "images/3d/Galeria/6.jpeg",
     "images/3d/Galeria/8.jpeg",
     "images/3d/Galeria/9.jpeg",
-    "images/3d/Suport manillar/Sm.jpeg",
-    "images/3d/Suport manillar/Sm_1.jpeg",
-    "images/3d/Suport manillar/Sm_2.jpeg",
-    "images/3d/Suport manillar/Sm_3.jpeg",
-    "images/3d/Suport manillar/Sm_4.jpeg",
+    "images/3d/Suport_manillar/Sm.jpeg",
+    "images/3d/Suport_manillar/Sm_1.jpeg",
+    "images/3d/Suport_manillar/Sm_2.jpeg",
+    "images/3d/Suport_manillar/Sm_3.jpeg",
+    "images/3d/Suport_manillar/Sm_4.jpeg",
 ];
 let indiceMiniatura1 = 0;
 

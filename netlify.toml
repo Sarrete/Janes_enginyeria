@@ -1,3 +1,4 @@
+# --- Redirecciones ---
 [[redirects]]
   from = "http://*"
   to = "https://:splat"
@@ -10,20 +11,41 @@
   status = 301
   force = true
 
+# --- Cabeceras: HTML y rutas generales ---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+    Vary = "Accept-Encoding"
+    X-Content-Type-Options = "nosniff"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# --- Cabeceras: recursos estáticos versionados ---
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Vary = "Accept-Encoding"
+
+# --- Cabeceras: imágenes y multimedia ---
+[[headers]]
+  for = "/multimedia/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Vary = "Accept-Encoding"
+
+# --- Cabeceras: sitemap ---
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml"
     Vary = "Accept-Encoding"
 
+# --- Plugins existentes ---
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
-
   [plugins.inputs]
-  baseUrl = "https://janesenginyeria.netlify.app"
-  sitemapPath = "/sitemap.xml"
-  ignorePeriod = 3600 # 1 hora en segundos
-  providers = [
-    "google",
-    "yandex"
-  ]
+    baseUrl = "https://janesenginyeria.netlify.app"
+    sitemapPath = "/sitemap.xml"
+    ignorePeriod = 3600 # 1 hora
+    providers = [ "google", "yandex" ]

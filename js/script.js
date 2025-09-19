@@ -207,7 +207,7 @@ cargarContenidoPorIdioma();
             menu.classList.remove("show"); // Ocultar el menú
         });
     });
-     // Seleccionar contenedores de imágenes
+// Seleccionar contenedores de imágenes
 const imageContainers = document.querySelectorAll(".image-container");
 
 // Función de validación segura
@@ -217,7 +217,7 @@ function isSafeUrl(url) {
     return /^(https?:\/\/|\/|\.\/|\.\.\/|[a-zA-Z0-9_\-]+\/)[a-zA-Z0-9_\-./%?#=&]*$/.test(url);
 }
 
-imageContainers.forEach((container, index) => {
+imageContainers.forEach((container) => {
     const img = container.querySelector("img");
     const caption = container.querySelector(".image-caption");
     let images = [];
@@ -228,6 +228,7 @@ imageContainers.forEach((container, index) => {
         images = [];
     }
 
+    // Filtrar imágenes inseguras
     images = images.filter(isSafeUrl);
 
     let videoSrc = container.getAttribute("data-video");
@@ -236,23 +237,14 @@ imageContainers.forEach((container, index) => {
     img.addEventListener("click", function () {
         cleanVideo();
         currentMedia = videoSrc ? [videoSrc].concat(images) : images;
+        currentMediaIndex = 0;
+        isVideo = !!videoSrc; // true si hay vídeo
+        const captionText = caption ? caption.textContent : "";
 
-        if (index === 0 && isVideo) {
-            popupImage.style.display = "none";
-            popupVideo.style.display = "block";
-            videoSource.src = isSafeUrl(currentMedia[index]) ? currentMedia[index] : "";
-            popupVideo.load();
-            videoCaption.textContent = captionText;
-            videoCaption.style.display = 'block';
-        } else {
-            popupVideo.style.display = "none";
-            popupImage.src = isSafeUrl(currentMedia[index]) ? currentMedia[index] : "";
-            popupImage.style.display = "block";
-        }
+        // Usar la misma función que en la galería para mostrar el popup
+        showMedia(currentMediaIndex, captionText);
     });
 });
-
-
 
     
         // Función para mostrar imágenes o videos en el popup

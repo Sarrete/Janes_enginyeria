@@ -207,45 +207,23 @@ cargarContenidoPorIdioma();
             menu.classList.remove("show"); // Ocultar el menú
         });
     });
-// Seleccionar contenedores de imágenes
-const imageContainers = document.querySelectorAll(".image-container");
-
-// Función de validación segura
-function isSafeUrl(url) {
-    // Permitir https://, http://, rutas absolutas, relativas y de carpeta local
-    // Bloquear javascript:, data:, vbscript: y otros esquemas peligrosos
-    return /^(https?:\/\/|\/|\.\/|\.\.\/|[a-zA-Z0-9_\-]+\/)[a-zA-Z0-9_\-./%?#=&]*$/.test(url);
-}
-
-imageContainers.forEach((container) => {
-    const img = container.querySelector("img");
-    const caption = container.querySelector(".image-caption");
-    let images = [];
-
-    try {
-        images = JSON.parse(container.getAttribute("data-images")) || [];
-    } catch (e) {
-        images = [];
-    }
-
-    // Filtrar imágenes inseguras
-    images = images.filter(isSafeUrl);
-
-    let videoSrc = container.getAttribute("data-video");
-    videoSrc = isSafeUrl(videoSrc) ? videoSrc : null;
-
-    img.addEventListener("click", function () {
-        cleanVideo();
-        currentMedia = videoSrc ? [videoSrc].concat(images) : images;
-        currentMediaIndex = 0;
-        isVideo = !!videoSrc; // true si hay vídeo
-        const captionText = caption ? caption.textContent : "";
-
-        // Usar la misma función que en la galería para mostrar el popup
-        showMedia(currentMediaIndex, captionText);
-    });
-});
-
+        // Seleccionar contenedores de imágenes
+        const imageContainers = document.querySelectorAll(".image-container");
+    
+        imageContainers.forEach(container => {
+            const img = container.querySelector("img");
+            const caption = container.querySelector(".image-caption");
+            const images = JSON.parse(container.getAttribute("data-images"));
+            const videoSrc = container.getAttribute("data-video");
+    
+            img.addEventListener("click", function () {
+                cleanVideo(); // Asegurarse de limpiar cualquier video previo
+                currentMedia = videoSrc ? [videoSrc].concat(images) : images;
+                currentMediaIndex = 0;
+                isVideo = !!videoSrc;
+                showMedia(currentMediaIndex, caption.textContent);
+            });
+        });
     
         // Función para mostrar imágenes o videos en el popup
         function showMedia(index, captionText) {
@@ -256,13 +234,13 @@ imageContainers.forEach((container) => {
             if (index === 0 && isVideo) {
                 popupImage.style.display = "none";
                 popupVideo.style.display = "block";
-                videoSource.src = isSafeUrl(currentMedia[index]) ? currentMedia[index] : "";
+                videoSource.src = currentMedia[index];
                 popupVideo.load();
                 videoCaption.textContent = captionText;
                 videoCaption.style.display = 'block';
             } else {
                 popupVideo.style.display = "none";
-                popupImage.src = isSafeUrl(currentMedia[index]) ? currentMedia[index] : "";
+                popupImage.src = currentMedia[index];
                 popupImage.style.display = "block";
             }
         }

@@ -207,35 +207,49 @@ cargarContenidoPorIdioma();
             menu.classList.remove("show"); // Ocultar el menú
         });
     });
-        // Seleccionar contenedores de imágenes
-        const imageContainers = document.querySelectorAll(".image-container");
+       // Seleccionar contenedores de imágenes
+const imageContainers = document.querySelectorAll(".image-container");
 
-        function isSafeUrl(url) {
-            // Disallow javascript:, data:, vbscript: and allow http(s), /, and relative
-            return /^(https?:\/\/|\/|\.\/|\.\.\/)[^\s]*$/.test(url);
+// Función de validación segura
+function isSafeUrl(url) {
+    // Permitir solo https:// o rutas locales seguras (/, ./, ../)
+    // Bloquear javascript:, data:, vbscript: y otros esquemas peligrosos
+    return /^(https:\/\/|\/|\.\/|\.\.\/)[a-zA-Z0-9_\-./%?#=&]*$/.test(url);
+}
+
+imageContainers.forEach(container => {
+    const img = container.querySelector("img");
+    const caption = container.querySelector(".image-caption");
+    let images = [];
+    try {
+        images = JSON.parse(container.getAttribute("data-images")) || [];
+    } catch (e) {
+        images = [];
+    }
+    images = images.filter(isSafeUrl);
+
+    let videoSrc = container.getAttribute("data-video");
+    videoSrc = isSafeUrl(videoSrc) ? videoSrc : null;
+
+    img.addEventListener("click", function () {
+        cleanVideo(); // Asegurarse de limpiar cualquier video previo
+        currentMedia = videoSrc ? [videoSrc].concat(images) : images;
+
+        if (index === 0 && isVideo) {
+            popupImage.style.display = "none";
+            popupVideo.style.display = "block";
+            videoSource.src = isSafeUrl(currentMedia[index]) ? currentMedia[index] : "";
+            popupVideo.load();
+            videoCaption.textContent = captionText;
+            videoCaption.style.display = 'block';
+        } else {
+            popupVideo.style.display = "none";
+            popupImage.src = isSafeUrl(currentMedia[index]) ? currentMedia[index] : "";
+            popupImage.style.display = "block";
         }
+    });
+});
 
-        imageContainers.forEach(container => {
-            const img = container.querySelector("img");
-            const caption = container.querySelector(".image-caption");
-            let images = [];
-            try {
-                images = JSON.parse(container.getAttribute("data-images")) || [];
-            } catch(e) {
-                images = [];
-            }
-            images = images.filter(isSafeUrl);
-            let videoSrc = container.getAttribute("data-video");
-            videoSrc = isSafeUrl(videoSrc) ? videoSrc : null;
-
-            img.addEventListener("click", function () {
-                cleanVideo(); // Asegurarse de limpiar cualquier video previo
-                currentMedia = videoSrc ? [videoSrc].concat(images) : images;
-                currentMediaIndex = 0;
-                isVideo = !!videoSrc;
-                showMedia(currentMediaIndex, caption.textContent);
-            });
-        });
     
         // Función para mostrar imágenes o videos en el popup
         function showMedia(index, captionText) {

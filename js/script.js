@@ -228,14 +228,13 @@ imageContainers.forEach((container, index) => {
         images = [];
     }
 
-    // Filtrar imágenes inseguras
     images = images.filter(isSafeUrl);
 
     let videoSrc = container.getAttribute("data-video");
     videoSrc = isSafeUrl(videoSrc) ? videoSrc : null;
 
     img.addEventListener("click", function () {
-        cleanVideo(); // Asegurarse de limpiar cualquier video previo
+        cleanVideo();
         currentMedia = videoSrc ? [videoSrc].concat(images) : images;
 
         if (index === 0 && isVideo) {
@@ -252,6 +251,7 @@ imageContainers.forEach((container, index) => {
         }
     });
 });
+
 
 
     

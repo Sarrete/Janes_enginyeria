@@ -207,25 +207,28 @@ cargarContenidoPorIdioma();
             menu.classList.remove("show"); // Ocultar el menú
         });
     });
-       // Seleccionar contenedores de imágenes
+     // Seleccionar contenedores de imágenes
 const imageContainers = document.querySelectorAll(".image-container");
 
 // Función de validación segura
 function isSafeUrl(url) {
-    // Permitir solo https:// o rutas locales seguras (/, ./, ../)
+    // Permitir https://, http://, rutas absolutas, relativas y de carpeta local
     // Bloquear javascript:, data:, vbscript: y otros esquemas peligrosos
-    return /^(https:\/\/|\/|\.\/|\.\.\/)[a-zA-Z0-9_\-./%?#=&]*$/.test(url);
+    return /^(https?:\/\/|\/|\.\/|\.\.\/|[a-zA-Z0-9_\-]+\/)[a-zA-Z0-9_\-./%?#=&]*$/.test(url);
 }
 
-imageContainers.forEach(container => {
+imageContainers.forEach((container, index) => {
     const img = container.querySelector("img");
     const caption = container.querySelector(".image-caption");
     let images = [];
+
     try {
         images = JSON.parse(container.getAttribute("data-images")) || [];
     } catch (e) {
         images = [];
     }
+
+    // Filtrar imágenes inseguras
     images = images.filter(isSafeUrl);
 
     let videoSrc = container.getAttribute("data-video");
@@ -249,6 +252,7 @@ imageContainers.forEach(container => {
         }
     });
 });
+
 
     
         // Función para mostrar imágenes o videos en el popup

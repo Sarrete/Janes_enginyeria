@@ -209,13 +209,48 @@ cargarContenidoPorIdioma();
     });
         // Seleccionar contenedores de imágenes
         const imageContainers = document.querySelectorAll(".image-container");
-    
+
+        function isSafeUrl(url) {
+            // Disallow javascript:, data:, vbscript: and allow http(s), /, and relative
+            return /^(https?:\/\/|\/|\.\/|\.\.\/)[^\s]*$/.test(url);
+        }
+
+        function sanitizeMediaUrl(url) {
+            if (typeof url !== "string" || url.trim() === "") {
+                return "";
+            }
+
+            if (!isSafeUrl(url)) {
+                return "";
+            }
+
+            try {
+                const parsed = new URL(url, window.location.origin);
+                if (parsed.protocol === "http:" || parsed.protocol === "https:") {
+                    return parsed.href;
+                }
+            } catch (e) {
+                return "";
+            }
+
+            return "";
+        }
+
         imageContainers.forEach(container => {
             const img = container.querySelector("img");
             const caption = container.querySelector(".image-caption");
-            const images = JSON.parse(container.getAttribute("data-images"));
-            const videoSrc = container.getAttribute("data-video");
-    
+            let images = [];
+            try {
+                images = JSON.parse(container.getAttribute("data-images")) || [];
+            } catch(e) {
+                images = [];
+            }
+            images = images
+                .map(sanitizeMediaUrl)
+                .filter(url => url !== "");
+            let videoSrc = container.getAttribute("data-video");
+            videoSrc = sanitizeMediaUrl(videoSrc) || null;
+
             img.addEventListener("click", function () {
                 cleanVideo(); // Asegurarse de limpiar cualquier video previo
                 currentMedia = videoSrc ? [videoSrc].concat(images) : images;
@@ -234,13 +269,13 @@ cargarContenidoPorIdioma();
             if (index === 0 && isVideo) {
                 popupImage.style.display = "none";
                 popupVideo.style.display = "block";
-                videoSource.src = currentMedia[index];
+                videoSource.src = sanitizeMediaUrl(currentMedia[index]);
                 popupVideo.load();
                 videoCaption.textContent = captionText;
                 videoCaption.style.display = 'block';
             } else {
                 popupVideo.style.display = "none";
-                popupImage.src = currentMedia[index];
+                popupImage.src = sanitizeMediaUrl(currentMedia[index]);
                 popupImage.style.display = "block";
             }
         }

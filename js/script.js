@@ -215,6 +215,27 @@ cargarContenidoPorIdioma();
             return /^(https?:\/\/|\/|\.\/|\.\.\/)[^\s]*$/.test(url);
         }
 
+        function sanitizeMediaUrl(url) {
+            if (typeof url !== "string" || url.trim() === "") {
+                return "";
+            }
+
+            if (!isSafeUrl(url)) {
+                return "";
+            }
+
+            try {
+                const parsed = new URL(url, window.location.origin);
+                if (parsed.protocol === "http:" || parsed.protocol === "https:") {
+                    return parsed.href;
+                }
+            } catch (e) {
+                return "";
+            }
+
+            return "";
+        }
+
         imageContainers.forEach(container => {
             const img = container.querySelector("img");
             const caption = container.querySelector(".image-caption");
@@ -224,9 +245,11 @@ cargarContenidoPorIdioma();
             } catch(e) {
                 images = [];
             }
-            images = images.filter(isSafeUrl);
+            images = images
+                .map(sanitizeMediaUrl)
+                .filter(url => url !== "");
             let videoSrc = container.getAttribute("data-video");
-            videoSrc = isSafeUrl(videoSrc) ? videoSrc : null;
+            videoSrc = sanitizeMediaUrl(videoSrc) || null;
 
             img.addEventListener("click", function () {
                 cleanVideo(); // Asegurarse de limpiar cualquier video previo
@@ -246,13 +269,13 @@ cargarContenidoPorIdioma();
             if (index === 0 && isVideo) {
                 popupImage.style.display = "none";
                 popupVideo.style.display = "block";
-                videoSource.src = isSafeUrl(currentMedia[index]) ? currentMedia[index] : "";
+                videoSource.src = sanitizeMediaUrl(currentMedia[index]);
                 popupVideo.load();
                 videoCaption.textContent = captionText;
                 videoCaption.style.display = 'block';
             } else {
                 popupVideo.style.display = "none";
-                popupImage.src = isSafeUrl(currentMedia[index]) ? currentMedia[index] : "";
+                popupImage.src = sanitizeMediaUrl(currentMedia[index]);
                 popupImage.style.display = "block";
             }
         }

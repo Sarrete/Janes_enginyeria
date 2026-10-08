@@ -210,31 +210,27 @@ cargarContenidoPorIdioma();
         // Seleccionar contenedores de imágenes
         const imageContainers = document.querySelectorAll(".image-container");
 
-        function isSafeUrl(url) {
-            // Disallow javascript:, data:, vbscript: and allow http(s), /, and relative
-            return /^(https?:\/\/|\/|\.\/|\.\.\/)[^\s]*$/.test(url);
-        }
+       function sanitizeMediaUrl(url) {
+    if (typeof url !== "string" || url.trim() === "") {
+        return "";
+    }
 
-        function sanitizeMediaUrl(url) {
-            if (typeof url !== "string" || url.trim() === "") {
-                return "";
-            }
+    const trimmedUrl = url.trim();
 
-            if (!isSafeUrl(url)) {
-                return "";
-            }
+    try {
+        const parsed = new URL(trimmedUrl, window.location.origin);
 
-            try {
-                const parsed = new URL(url, window.location.origin);
-                if (parsed.protocol === "http:" || parsed.protocol === "https:") {
-                    return parsed.href;
-                }
-            } catch (e) {
-                return "";
-            }
-
+        // Solo permitimos http y https.
+        // Esto bloquea javascript:, data:, vbscript:, etc.
+        if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
             return "";
         }
+
+        return parsed.href;
+    } catch (e) {
+        return "";
+    }
+}
 
         imageContainers.forEach(container => {
             const img = container.querySelector("img");
